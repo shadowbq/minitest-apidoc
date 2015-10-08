@@ -10,5 +10,15 @@ See an [example of what the test code looks like](https://github.com/lauri/krack
 
 See an [entire example application](https://github.com/lauri/krack-apidoc-example).
 
+## Minitest 5.5
+
+Setup
+
+```ruby
+require 'minitest/apidoc'
+require 'minitest/apidoc_plugin'
+MiniTest::Apidoc::Reporter.enable_plugin = true
+```
+
 ### License
 This content is released under the [MIT License](http://opensource.org/licenses/MIT).
