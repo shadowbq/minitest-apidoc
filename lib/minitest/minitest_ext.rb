@@ -9,6 +9,10 @@ module Minitest
         @params ||= []
       end
 
+      def headers
+        @headers ||= []
+      end
+
       def example(desc, &block)
         it desc do
           self.class.metadata[:example_name] = desc
@@ -22,6 +26,10 @@ module Minitest
 
       def param(name, description, options={})
         self.params << {:name => name, :description => description}.merge(options)
+      end
+
+      def header(name, description, options={})
+        self.headers << {:name => name, :description => description}.merge(options)
       end
     end
   end
