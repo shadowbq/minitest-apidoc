@@ -15,6 +15,7 @@ module Minitest
           @endpoints[test.class] = Endpoint.new
           @endpoints[test.class].metadata = test.class.metadata
           @endpoints[test.class].params = test.class.params
+          @endpoints[test.class].headers = test.class.headers
         end
 
         if test.passed?
