@@ -22,8 +22,8 @@ module Minitest
       # first, then POSTs, PUTs, and so on. The template works with this array
       # to display the documentation.
       def self.from(endpoint_hash)
-        # Drop if no example_name
-        endpoint_hash.values.select! { |ep| ep.example_name != nil }
+        # Drop if key/hash if no example_name
+        endpoint_hash.select! { |k, v| v.example_name != nil }
         sorted_endpoints = endpoint_hash.values.sort_by do |endpoint|
           Methods::VERBS.index(endpoint.request_method.downcase)
         end
