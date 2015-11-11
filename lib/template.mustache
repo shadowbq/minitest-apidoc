@@ -162,10 +162,16 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
                   <dd>{{description}}{{#required}} <em>(required)</em>{{/required}}</dd>
                 {{/params}}
               </dl>
+              <h4>Status Code:</h4>
+              <dl>
+                {{#status_codes}}
+                  <dt><code>{{code}}</code></dt>
+                {{/status_codes}}
+              </dl>
               {{#examples}}
                 <p><strong>Example:</strong> {{title}}</p>
                 <pre>{{request}}</pre>
-                <pre>{{response}}</pre>
+                {{{response}}}
               {{/examples}}
             </div>
           {{/endpoints}}

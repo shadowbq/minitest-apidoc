@@ -1,7 +1,7 @@
 module Minitest
   module Apidoc
     class Endpoint
-      attr_accessor :metadata, :params, :examples, :headers
+      attr_accessor :metadata, :params, :examples, :headers, :status_codes
 
       def initialize
         @metadata = {}

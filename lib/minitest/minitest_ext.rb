@@ -13,6 +13,10 @@ module Minitest
         @headers ||= []
       end
 
+      def status_codes
+        @status_codes ||= []
+      end
+
       def example(desc, &block)
         it desc do
           self.class.metadata[:example_name] = desc
@@ -31,6 +35,11 @@ module Minitest
       def header(name, description, options={})
         self.headers << {:name => name, :description => description}.merge(options)
       end
+
+      def status_code(code, options={})
+        @status_codes = [{:code => code}.merge(options)]
+      end
+
     end
   end
 end

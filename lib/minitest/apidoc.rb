@@ -5,6 +5,7 @@ require 'minitest/apidoc/methods'
 require 'minitest/apidoc/group'
 require 'minitest/apidoc/endpoint'
 require 'minitest/apidoc/template'
+require 'coderay'
 
 module Minitest
   module Apidoc
