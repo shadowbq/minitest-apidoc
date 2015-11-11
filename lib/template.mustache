@@ -86,13 +86,16 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
         background: #4ab948;
       }
       .label.post {
-        background: #d98a48;
+        background: #4849d9;
       }
       .label.put {
         background: #4a88b9;
       }
       .label.delete {
-        background: #b94a48;
+        background: #805e5e;
+      }
+      .label.exception {
+        background: #c70e0b;
       }
       .sidebar {
         position: fixed;
@@ -117,6 +120,9 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
       }
       .endpoint {
         margin-bottom: 2em;
+      }
+      .error {
+        color: darkred;
       }
     </style>
   </head>
@@ -147,15 +153,22 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
                 <span class="label {{html_class}}">{{request_method}}</span>
                 {{request_path}}
               </h3>
+              {{#api_exception}}
+              <span class="label exception">{{{api_exception}}}</span>
+              {{/api_exception}}
               <p>{{{description}}}</p>
+              {{#headers}}
               <h4>Headers:</h4>
+              {{/headers}}
               <dl>
                 {{#headers}}
                   <dt><code>{{name}}</code></dt>
                   <dd>{{description}}{{#required}} <em>(required)</em>{{/required}}</dd>
                 {{/headers}}
               </dl>
+              {{#params}}
               <h4>Parameters:</h4>
+              {{/params}}
               <dl>
                 {{#params}}
                   <dt><code>{{name}}</code></dt>
