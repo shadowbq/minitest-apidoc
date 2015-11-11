@@ -10,7 +10,7 @@ module Minitest
       end
 
       def html_anchor
-        "#{@metadata[:request_method]}-#{@metadata[:request_path]}"
+        "#{@metadata[:request_method]}-#{@metadata[:request_path]}-#{@metadata.hash.abs}"
       end
 
       def html_class
