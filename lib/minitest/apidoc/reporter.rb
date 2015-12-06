@@ -32,7 +32,7 @@ module Minitest
                 @endpoints[test.class].status_codes = test.class.status_codes
             else
               # If endpoint metadat not empty set it..?
-              if !(defined?(@endpoints[test.class].status_codes))
+              if @endpoints[test.class].status_codes.nil?
                   # No pre-defined code, use the passed test code.
                   @endpoints[test.class].status_codes = [{:code => test.last_response.status}]
               end
