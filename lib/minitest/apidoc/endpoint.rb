@@ -17,7 +17,6 @@ module Minitest
         !(params.empty?)
       end
 
-
       def html_anchor
         "#{@metadata[:request_method]}-#{@metadata[:request_path]}-#{@metadata.hash.abs}"
       end

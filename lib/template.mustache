@@ -193,7 +193,9 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
               {{#examples}}
                 <p><strong>Example:</strong> {{title}}</p>
                 <pre>{{request}}</pre>
-                <pre>{{request.body}}</pre>
+                {{#request_body}}
+                <pre>{{request_body}}</pre>
+                {{/request_body}}
                 {{{response}}}
               {{/examples}}
             </div>

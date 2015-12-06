@@ -21,6 +21,12 @@ module Minitest
             @endpoints[test.class].params = test.class.params
             @endpoints[test.class].headers = test.class.headers
 
+            if (test.last_request.body.string == "") || (test.last_request.body.string == nil)
+              request_body = false
+            else
+              request_body = test.last_request.body.string
+            end
+
             # Check if test had a defined status code
             if !(test.class.status_codes.first.nil?) && test.class.status_codes.first.has_key?(:code)
                 @endpoints[test.class].status_codes = test.class.status_codes
@@ -38,6 +44,7 @@ module Minitest
             @endpoints[test.class].examples << {
               :title    => test.class.metadata[:example_name],
               :request  => test.class.metadata[:request],
+              :request_body  => request_body,
               :response => CodeRay.scan(test.class.metadata[:response], :JSON).div
             }
           end
