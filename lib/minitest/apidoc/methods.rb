@@ -25,7 +25,10 @@ module Minitest
       # also yields the data as parsed JSON object instead of raw text.
       def _request(verb, uri, params={}, env={}, &block)
         send("rack_test_#{verb}", uri, params, env)
-
+        #require 'pry'
+        #if uri == '/research'
+        #  binding.pry
+        #end
         self.class.metadata[:request] = "#{verb.upcase} #{last_request.fullpath}"
         self.class.metadata[:request] << $/ + last_request.body.read if last_request.body
 

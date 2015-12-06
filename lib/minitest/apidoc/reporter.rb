@@ -33,8 +33,8 @@ module Minitest
           end
 
           if test.passed? && test.class.metadata[:request]
-            #require 'pry'
-            #binding.pry
+            require 'pry'
+            binding.pry
             @endpoints[test.class].examples << {
               :title    => test.class.metadata[:example_name],
               :request  => test.class.metadata[:request],
