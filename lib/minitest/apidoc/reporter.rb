@@ -20,13 +20,16 @@ module Minitest
             @endpoints[test.class].metadata = test.class.metadata
             @endpoints[test.class].params = test.class.params
             @endpoints[test.class].headers = test.class.headers
-
-            if (test.last_request.body.string == "") || (test.last_request.body.string == nil)
+            begin
+              if (test.last_request.body.string == "") || (test.last_request.body.string == nil)
+                request_body = false
+              else
+                request_body = CodeRay.scan(JSON.pretty_generate(JSON.parse(test.last_request.body.string)), :JSON).div
+              end
+            rescue NoMethodError
               request_body = false
-            else
-              request_body = CodeRay.scan(JSON.pretty_generate(JSON.parse(test.last_request.body.string)), :JSON).div
             end
-
+            
             # Check if test had a pre-defined status code
             if !(test.class.status_codes.first.nil?) && test.class.status_codes.first.has_key?(:code)
                 @endpoints[test.class].status_codes = test.class.status_codes
