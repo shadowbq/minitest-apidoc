@@ -27,20 +27,19 @@ module Minitest
               request_body = test.last_request.body.string
             end
 
-            # Check if test had a defined status code
+            # Check if test had a pre-defined status code
             if !(test.class.status_codes.first.nil?) && test.class.status_codes.first.has_key?(:code)
                 @endpoints[test.class].status_codes = test.class.status_codes
             else
-              # No defined code, use the passed test code.
-                if !(@endpoints.first[1].metadata.empty?)
+              # If endpoint metadat not empty set it..?
+              if @endpoints[test.class].status_codes.empty?
+                  # No pre-defined code, use the passed test code.
                   @endpoints[test.class].status_codes = [{:code => test.last_response.status}]
-                end
+              #  end
             end
           end
 
           if test.passed? && test.class.metadata[:request]
-            require 'pry'
-            binding.pry
             @endpoints[test.class].examples << {
               :title    => test.class.metadata[:example_name],
               :request  => test.class.metadata[:request],
