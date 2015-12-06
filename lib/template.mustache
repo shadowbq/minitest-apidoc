@@ -42,7 +42,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
       code {
         padding: 1px 4px;
       }
-      pre.request, code.request {
+      .request{
         background: #E5E8F5;
       }
       dl {
@@ -197,7 +197,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
                 <p><strong>Example:</strong> {{title}}</p>
                 <pre class='request'>{{request}}</pre>
                 {{#request_body}}
-                <pre class='request'>{{request_body}}</pre>
+                <div class='request'>{{{request_body}}}</div>
                 {{/request_body}}
                 {{{response}}}
               {{/examples}}

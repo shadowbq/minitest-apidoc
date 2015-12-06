@@ -24,7 +24,7 @@ module Minitest
             if (test.last_request.body.string == "") || (test.last_request.body.string == nil)
               request_body = false
             else
-              request_body = test.last_request.body.string
+              request_body = CodeRay.scan(test.last_request.body.string, :JSON).div(:css => :class)
             end
 
             # Check if test had a pre-defined status code
