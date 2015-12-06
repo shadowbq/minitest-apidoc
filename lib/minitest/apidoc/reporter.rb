@@ -35,7 +35,7 @@ module Minitest
               if @endpoints[test.class].status_codes.empty?
                   # No pre-defined code, use the passed test code.
                   @endpoints[test.class].status_codes = [{:code => test.last_response.status}]
-              #  end
+              end
             end
           end
 
