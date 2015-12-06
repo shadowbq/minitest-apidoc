@@ -42,6 +42,9 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
       code {
         padding: 1px 4px;
       }
+      pre.request, code.request {
+        background: #E5E8F5;
+      }
       dl {
         overflow: auto;
       }
@@ -192,9 +195,9 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input
               </dl>
               {{#examples}}
                 <p><strong>Example:</strong> {{title}}</p>
-                <pre>{{request}}</pre>
+                <pre class='request'>{{request}}</pre>
                 {{#request_body}}
-                <pre>{{request_body}}</pre>
+                <pre class='request'>{{request_body}}</pre>
                 {{/request_body}}
                 {{{response}}}
               {{/examples}}
